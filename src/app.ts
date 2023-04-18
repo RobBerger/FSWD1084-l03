@@ -1,16 +1,9 @@
-import express, { NextFunction, Request, Response } from 'express'
+import express from 'express'
+
+import routes from './routes/index';
 
 const app = express();
 
-function helloWorld(req: Request, res: Response, next: NextFunction){
-    res.send('Hello World')
-}
-
-function info(req: Request, res: Response, next: NextFunction){
-    res.send('Server is running at port 3000');
-}
-
-app.use('/info', info);
-app.use('/', helloWorld);
+app.use('/', routes);
 
 app.listen(3000);
